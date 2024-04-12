@@ -22,11 +22,10 @@ defineEmits({
   </article>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .app-card {
   background-color: rgba(0,0,0,0.05);
   color: black;
-  // border-radius: 1rem;
   border: 1px solid grey;
   padding: 1em;
   min-width: calc(1em * 10);

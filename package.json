@@ -18,19 +18,17 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./preview": {
-      "require": "./dist/preview.js",
-      "import": "./dist/preview.mjs",
+      "import": "./dist/preview.js",
       "types": "./dist/preview.d.ts"
     },
     "./package.json": "./package.json"
   },
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/**/*",
@@ -42,7 +40,7 @@
     "clean": "rimraf ./dist",
     "prebuild": "yarn clean",
     "build": "tsup",
-    "build:watch": "yarn build --watch",
+    "build:watch": "pnpm build --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "run-p build:watch 'storybook --quiet'",
     "prerelease": "zx scripts/prepublish-checks.mjs",
@@ -52,57 +50,41 @@
     "preview-storybook": "vite preview --port 6088 --out-dir storybook-static"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.0.27",
-    "@storybook/addon-interactions": "^7.0.27",
-    "@storybook/addon-links": "^7.0.27",
-    "@storybook/addon-mdx-gfm": "7.0.27",
-    "@storybook/blocks": "^7.0.27",
-    "@storybook/builder-vite": "^7.0.27",
-    "@storybook/components": "^7.0.27",
-    "@storybook/core-events": "^7.0.27",
-    "@storybook/preview-api": "^7.0.27",
-    "@storybook/testing-library": "^0.2.0",
-    "@storybook/theming": "^7.0.27",
-    "@storybook/types": "^7.0.27",
-    "@storybook/vue3": "^7.0.27",
-    "@storybook/vue3-vite": "^7.0.27",
-    "@types/node": "^18.15.0",
-    "@types/react": "^18.0.34",
-    "@vitejs/plugin-react": "^3.1.0",
-    "auto": "^10.46.0",
-    "boxen": "^5.0.1",
-    "cheerio": "^1.0.0-rc.12",
-    "dedent": "^0.7.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.1",
-    "prompts": "^2.4.2",
-    "prop-types": "^15.8.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "rimraf": "^3.0.2",
-    "sass": "^1.63.6",
-    "storybook": "^7.0.27",
-    "tsup": "^7.1.0",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.4",
-    "vue": "^3.3.4",
-    "zx": "^1.14.1"
+    "@storybook/addon-essentials": "^8.0.8",
+    "@storybook/addon-interactions": "^8.0.8",
+    "@storybook/addon-links": "^8.0.8",
+    "@storybook/addon-mdx-gfm": "8.0.8",
+    "@storybook/blocks": "^8.0.8",
+    "@storybook/builder-vite": "^8.0.8",
+    "@storybook/components": "^8.0.8",
+    "@storybook/core-events": "^8.0.8",
+    "@storybook/preview-api": "^8.0.8",
+    "@storybook/test": "^8.0.8",
+    "@storybook/theming": "^8.0.8",
+    "@storybook/types": "^8.0.8",
+    "@storybook/vue3": "^8.0.8",
+    "@storybook/vue3-vite": "^8.0.8",
+    "@types/node": "^20.12.7",
+    "auto": "^11.1.6",
+    "boxen": "^7.1.1",
+    "cheerio": "1.0.0-rc.12",
+    "dedent": "^1.5.3",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "storybook": "^8.0.8",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.8",
+    "vue": "^3.4.21",
+    "zx": "^8.0.1"
   },
   "peerDependencies": {
-    "@storybook/blocks": "^7.0.27",
-    "@storybook/core-events": "^7.0.27",
-    "@storybook/preview-api": "^7.0.27",
-    "@storybook/types": "^7.0.27",
-    "@storybook/vue3": "^7.0.27",
+    "@storybook/blocks": "^8.0.8",
+    "@storybook/core-events": "^8.0.8",
+    "@storybook/preview-api": "^8.0.8",
+    "@storybook/types": "^8.0.8",
+    "@storybook/vue3": "^8.0.8",
     "vue": "^3.3.4"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    },
-    "react-dom": {
-      "optional": true
-    }
   },
   "storybook": {
     "displayName": "Vue Slots",
@@ -111,9 +93,15 @@
     ],
     "icon": "https://api.iconify.design/logos/vue.svg"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "auto": {
     "plugins": [
       "npm"
     ]
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^5.0.4"
   }
 }
