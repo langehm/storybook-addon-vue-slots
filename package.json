@@ -2,6 +2,7 @@
   "name": "storybook-addon-vue-slots",
   "version": "0.9.29",
   "description": "Vue Slots support for Storybook",
+  "type": "module",
   "keywords": [
     "storybook-addons",
     "storybook",
@@ -81,7 +82,6 @@
     "rimraf": "^3.0.2",
     "sass": "^1.63.6",
     "storybook": "^7.0.27",
-    "storybook-addon-vue-slots": "^0.9.17",
     "tsup": "^7.1.0",
     "typescript": "^4.9.5",
     "vite": "^4.1.4",
@@ -90,14 +90,10 @@
   },
   "peerDependencies": {
     "@storybook/blocks": "^7.0.27",
-    "@storybook/components": "^7.0.27",
     "@storybook/core-events": "^7.0.27",
     "@storybook/preview-api": "^7.0.27",
-    "@storybook/theming": "^7.0.27",
     "@storybook/types": "^7.0.27",
     "@storybook/vue3": "^7.0.27",
-    "react": "^16.8.0 || ^17.0.27 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.27 || ^18.0.0",
     "vue": "^3.3.4"
   },
   "peerDependenciesMeta": {
