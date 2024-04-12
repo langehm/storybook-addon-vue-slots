@@ -1,11 +1,12 @@
 #!/usr/bin/env zx
 
-const packageJson = require("../package.json");
-const boxen = require("boxen");
-const dedent = require("dedent");
+import packageJson from "../package.json" assert { type: 'json' };
+import boxen from "boxen";
+import dedent from "dedent";
 
-const name = packageJson.name;
-const displayName = packageJson.storybook.displayName;
+const { name, storybook } = packageJson;
+
+const displayName = storybook.displayName;
 
 let exitCode = 0;
 $.verbose = false;
