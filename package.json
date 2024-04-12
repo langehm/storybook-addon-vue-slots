@@ -19,17 +19,16 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs"
     },
     "./preview": {
       "import": "./dist/preview.js",
-      "types": "./dist/preview.d.ts"
+      "types": "./dist/preview.d.ts",
+      "require": "./dist/preview.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
     "dist/**/*",
     "README.md",
