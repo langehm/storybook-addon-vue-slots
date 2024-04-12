@@ -65,6 +65,7 @@
     "@storybook/vue3": "^8.0.8",
     "@storybook/vue3-vite": "^8.0.8",
     "@types/node": "^20.12.7",
+    "@vitejs/plugin-vue": "^5.0.4",
     "auto": "^11.1.6",
     "boxen": "^7.1.1",
     "cheerio": "1.0.0-rc.12",
@@ -100,8 +101,5 @@
     "plugins": [
       "npm"
     ]
-  },
-  "dependencies": {
-    "@vitejs/plugin-vue": "^5.0.4"
   }
 }
