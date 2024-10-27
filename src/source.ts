@@ -87,12 +87,7 @@ export default (
 
   // console.log({code, slots, templates, slotArgs, slotTemplates, children})
 
-  return $.html({
-    lowerCaseAttributeNames: false,
-    lowerCaseTags: false,
-    xmlMode: false,
-    recognizeSelfClosing: true,
-  });
+  return $.html();
 };
 
 export const renderArgs = (template: string, args: Record<string, string>) => {
