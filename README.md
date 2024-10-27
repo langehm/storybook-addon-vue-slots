@@ -40,9 +40,9 @@ export default {
   // ...
   addons: [
     // ...
-    'storybook-addon-vue-slots',
+    "storybook-addon-vue-slots",
   ],
-} satisfies StorybookConfig
+} satisfies StorybookConfig;
 ```
 
 ## Examples
@@ -74,7 +74,7 @@ export default meta = {
       default: `Default slot content`,
     },
   },
-}
+};
 ```
 
 ### Standard
@@ -88,16 +88,16 @@ export default meta = {
   parameters: {
     slots: {
       default: {
-        description: 'Default slot',
+        description: "Default slot",
         template: `<p>{{ args.default }}</p>`,
       },
       header: {
-        description: 'Header slot',
+        description: "Header slot",
         template: `<p>{{ args.header }}</p>`,
       },
     },
   },
-}
+};
 ```
 
 So, value of `header` arg control in Storybook table is being passed into the slot template, allowing control of an aspect of the slot.
@@ -113,17 +113,17 @@ export default meta = {
   parameters: {
     slots: {
       default: {
-        description: 'Default slot',
+        description: "Default slot",
         template: `<p>{{ args.default }}</p>`,
       },
       header: {
-        description: 'Header slot',
+        description: "Header slot",
         components: { AppButton },
         template: `<AppButton>{{ args.header }}</AppButton>`,
       },
     },
   },
-}
+};
 ```
 
 ## Todo
@@ -139,4 +139,5 @@ Help support my open-source work through [PayPal](https://paypal.com) and [GitHu
 <a href="https://www.paypal.com/donate/?hosted_button_id=MVYGX9EHYRN9W"><img src="https://pics.paypal.com/00/s/YTRmYmIzYjgtNDA5My00YzY5LWJmN2QtNmMyNTU2ZGUwOTYw/file.PNG" border="0" height="35" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" /></a>
 
 ## License
+
 MIT License © 2023 Jacob Janisz

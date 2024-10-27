@@ -6,7 +6,6 @@
     "experimentalDecorators": true,
     "incremental": false,
     "isolatedModules": true,
-    "jsx": "react",
     "lib": ["ESNext", "dom"],
     "module": "commonjs",
     "noImplicitAny": true,
