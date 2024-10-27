@@ -3,6 +3,7 @@
   "version": "0.9.29",
   "description": "Vue Slots support for Storybook",
   "type": "module",
+  "prettier": "@muenchen/prettier-codeformat",
   "keywords": [
     "storybook-addons",
     "storybook",
@@ -46,9 +47,11 @@
     "release": "yarn build && auto shipit",
     "storybook": "storybook dev -p 6066",
     "build-storybook": "storybook build -o storybook-static",
-    "preview-storybook": "vite preview --port 6088 --out-dir storybook-static"
+    "preview-storybook": "vite preview --port 6088 --out-dir storybook-static",
+    "fix": "prettier . --write && eslint . --fix --ignore-path .gitignore"
   },
   "devDependencies": {
+    "@muenchen/prettier-codeformat": "^1.0.2y",
     "@storybook/addon-essentials": "^8.3.6",
     "@storybook/addon-interactions": "^8.3.6",
     "@storybook/addon-links": "^8.3.6",
@@ -69,6 +72,11 @@
     "cheerio": "1.0.0",
     "dedent": "^1.5.3",
     "prettier": "^3.3.3",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "@vue/eslint-config-prettier": "^10.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "@rushstack/eslint-patch": "^1.3.3",
     "rimraf": "^5.0.10",
     "storybook": "^8.3.6",
     "tsup": "^8.3.5",
