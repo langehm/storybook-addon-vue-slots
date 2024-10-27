@@ -51,7 +51,7 @@
     "fix": "prettier . --write && eslint . --fix --ignore-path .gitignore"
   },
   "devDependencies": {
-    "@muenchen/prettier-codeformat": "^1.0.2y",
+    "@muenchen/prettier-codeformat": "^1.0.2",
     "@storybook/addon-essentials": "^8.3.6",
     "@storybook/addon-interactions": "^8.3.6",
     "@storybook/addon-links": "^8.3.6",
