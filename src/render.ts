@@ -1,4 +1,4 @@
-import type { Args, ArgsStoryFn, Renderer } from "@storybook/types";
+import type { Args, ArgsStoryFn } from "@storybook/types";
 import type { VueRenderer } from "@storybook/vue3";
 import type { DefineComponent } from "vue";
 
@@ -6,10 +6,7 @@ import { computed } from "vue";
 
 import { wrappedTemplate } from "./utils";
 
-export const renderWithSlots = <
-  TRenderer extends Renderer,
-  TArgs extends Record<string, any>,
->() => {
+export const renderWithSlots = <TArgs extends Record<string, any>>() => {
   const makeComponentTemplate = (
     component: string,
     slots: string,
@@ -23,7 +20,7 @@ export const renderWithSlots = <
     </${component}>
   ` as const;
 
-  return ((args, { viewMode, componentId, component, parameters }) => {
+  return ((args, { component, parameters }) => {
     const componentName =
       (component as DefineComponent).__name! ||
       (component as { name: string }).name;

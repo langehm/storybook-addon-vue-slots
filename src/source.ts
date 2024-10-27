@@ -123,7 +123,7 @@ export const getSlotArgs = (code: string) => {
   const matches = [...code.matchAll(slotRegex)];
 
   const args = matches.reduce(
-    (acc, [_, slotName, arg]) => ({ ...acc, [slotName]: arg }),
+    (acc, [slotName, arg]) => ({ ...acc, [slotName]: arg }),
     {} as Record<string, string>
   );
 
