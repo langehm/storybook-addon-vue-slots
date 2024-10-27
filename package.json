@@ -44,7 +44,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run -p build:watch 'storybook --quiet'",
     "prerelease": "zx scripts/prepublish-checks.js",
-    "release": "yarn build && auto shipit",
+    "release": "pnpm build && auto shipit",
     "storybook": "storybook dev -p 6066",
     "build-storybook": "storybook build -o storybook-static",
     "preview-storybook": "vite preview --port 6088 --out-dir storybook-static",
