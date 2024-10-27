@@ -1,80 +1,90 @@
-import type { ProjectAnnotations, ArgTypesEnhancer, StrictInputType, ArgsEnhancer, Args } from "@storybook/types";
-import { Decorator, type VueRenderer } from "@storybook/vue3"
-import type { ConcreteComponent } from "vue"
-import renderWithSlots from './render'
-import transform from './source'
-import { SLOTS_CATEGORY_NAME } from './utils'
+import type {
+  ArgsEnhancer,
+  ArgTypesEnhancer,
+  ProjectAnnotations,
+  StrictInputType,
+} from "@storybook/types";
+import type { VueRenderer } from "@storybook/vue3";
+import type { ConcreteComponent } from "vue";
+
+import { Decorator } from "@storybook/vue3";
+
+import renderWithSlots from "./render";
+import transform from "./source";
+import { SLOTS_CATEGORY_NAME } from "./utils";
 
 const withSlots: Decorator = (story, { component, parameters }) => {
+  const slots = Object.keys(parameters.slots || {}).reduce(
+    (acc, key) => ({ ...acc, [key]: String }),
+    {}
+  );
 
-  const slots = Object.keys(parameters.slots || {}).reduce((acc, key) => ({ ...acc, [key]: String }), {})
+  const cmp = component as ConcreteComponent<any> | undefined;
 
-  const cmp = component as ConcreteComponent<any> | undefined
-
-  if(cmp)
-  cmp.props = {
-    ...cmp.props,
-    ...slots
-  }
+  if (cmp)
+    cmp.props = {
+      ...cmp.props,
+      ...slots,
+    };
 
   return {
     components: { story },
     setup(props) {
-      return { story, props }
+      return { story, props };
     },
-    template: '<story v-bind="props" />'
-  }
-}
+    template: '<story v-bind="props" />',
+  };
+};
 
-const convertSlotArgTypes: ArgTypesEnhancer<VueRenderer, Args> = (context) => {
+const convertSlotArgTypes: ArgTypesEnhancer<VueRenderer> = (context) => {
+  if (!context.parameters.slots) return context.argTypes;
 
-  if (!context.parameters.slots) return context.argTypes
+  const slots = context.parameters.slots;
+  const slotNames = Object.keys(slots);
 
-  const slots = context.parameters.slots
-  const slotNames = Object.keys(slots)
-
-  const slotArgTypes = slotNames.reduce((acc, slotName) => {
-    const slot = slots[slotName]
-    const slotArgType = {
-      ...context.argTypes[slotName],
-      name: slotName,
-      // control: 'text',
-      description: typeof slot === 'string' ? slot : slot.description,
-      table: {
-        ...context.argTypes[slotName]?.table,
-        category: SLOTS_CATEGORY_NAME,
-        defaultValue: null,
-        jsDocTags: undefined,
+  const slotArgTypes = slotNames.reduce(
+    (acc, slotName) => {
+      const slot = slots[slotName];
+      const slotArgType = {
+        ...context.argTypes[slotName],
+        name: slotName,
+        // control: 'text',
+        description: typeof slot === "string" ? slot : slot.description,
+        table: {
+          ...context.argTypes[slotName]?.table,
+          category: SLOTS_CATEGORY_NAME,
+          defaultValue: null,
+          jsDocTags: undefined,
+          type: {
+            ...context.argTypes[slotName]?.table?.type,
+            detail: undefined,
+            summary: "html",
+          },
+        },
         type: {
-          ...context.argTypes[slotName]?.table?.type,
-          detail: undefined,
-          summary: 'html'
-        }
-      },
-      type: {
-        ...context.argTypes[slotName]?.type,
-        required: undefined,
-        name: 'string'
-      }
-    } as StrictInputType
+          ...context.argTypes[slotName]?.type,
+          required: undefined,
+          name: "string",
+        },
+      } as StrictInputType;
 
-    return {
-      ...acc,
-      [slotName]: slotArgType
-    }
-  }, {} as Record<string, StrictInputType>)
+      return {
+        ...acc,
+        [slotName]: slotArgType,
+      };
+    },
+    {} as Record<string, StrictInputType>
+  );
 
-  const argTypes = {
+  return {
     ...context.argTypes,
-    ...slotArgTypes
-  }
+    ...slotArgTypes,
+  };
+};
 
-  return argTypes
-}
-
-const convertSlotArgs: ArgsEnhancer<VueRenderer, Args> = (context) => {
-  return context.initialArgs
-}
+const convertSlotArgs: ArgsEnhancer<VueRenderer> = (context) => {
+  return context.initialArgs;
+};
 
 const preview: ProjectAnnotations<VueRenderer> = {
   decorators: [withSlots],
@@ -84,10 +94,10 @@ const preview: ProjectAnnotations<VueRenderer> = {
   parameters: {
     docs: {
       source: {
-        language: 'html',
-        transform
-      }
-    }
+        language: "html",
+        transform,
+      },
+    },
   },
 };
 

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 defineProps({
   variant: {
     type: Boolean,
@@ -9,22 +8,25 @@ defineProps({
     type: Boolean,
     default: false,
   },
-})
+});
 
 defineEmits({
   click: (e: PointerEvent) => e,
-})
+});
 </script>
 
 <template>
-  <article class="app-card" :class="{ variant, disabled }">
+  <article
+    class="app-card"
+    :class="{ variant, disabled }"
+  >
     <slot />
   </article>
 </template>
 
 <style scoped>
 .app-card {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0, 0, 0, 0.05);
   color: black;
   border: 1px solid grey;
   padding: 1em;

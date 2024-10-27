@@ -1,8 +1,8 @@
 #!/usr/bin/env zx
-
-import packageJson from "../package.json" assert { type: 'json' };
 import boxen from "boxen";
 import dedent from "dedent";
+
+import packageJson from "../package.json" with { type: "json" };
 
 const { name, storybook } = packageJson;
 
