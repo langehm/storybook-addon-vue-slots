@@ -13,9 +13,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/JoJk0/storybook-addon-vue-slots"
+    "url": "https://github.com/langehm/storybook-addon-vue-slots"
   },
-  "author": "Jacob Janisz",
   "license": "MIT",
   "exports": {
     ".": {
