@@ -48,7 +48,8 @@
     "build-storybook": "storybook build -o storybook-static",
     "preview-storybook": "vite preview --port 6088 --out-dir storybook-static",
     "lint": "prettier . --check && eslint . --ignore-path .gitignore",
-    "fix": "prettier . --write && eslint . --fix --ignore-path .gitignore"
+    "fix": "prettier . --write && eslint . --fix --ignore-path .gitignore",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@muenchen/prettier-codeformat": "^1.0.2",
