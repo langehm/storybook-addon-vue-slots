@@ -62,7 +62,7 @@ module.exports = {
           {
             path: "dist/muc-patternlab-vue.es.js",
             label: "JS distribution",
-          }
+          },
         ],
       },
     ],
