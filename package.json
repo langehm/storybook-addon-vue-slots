@@ -15,6 +15,7 @@
     "type": "git",
     "url": "https://github.com/langehm/storybook-addon-vue-slots"
   },
+  "author": "langehm",
   "license": "MIT",
   "exports": {
     ".": {
