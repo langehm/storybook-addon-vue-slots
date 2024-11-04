@@ -1,5 +1,5 @@
 {
-  "name": "storybook-addon-vue-slots",
+  "name": "@langehm/storybook-addon-vue-slots",
   "version": "0.10.0",
   "description": "Vue Slots support for Storybook",
   "type": "module",
