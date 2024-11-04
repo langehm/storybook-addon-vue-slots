@@ -4,10 +4,11 @@
       <img src="https://api.iconify.design/logos/storybook-icon.svg" height="32" />
   </p>
   <h1 align="center">Vue Slots Addon</h1>
+    <h5 align="center">by @langehm</h5>
 
   <h3 align="center">
     <a href="https://www.npmjs.com/package/storybook-addon-vue-slots">
-      <img src="https://img.shields.io/npm/v/storybook-addon-vue-slots?style=flat-square" alt="version" />
+      <img src="https://img.shields.io/npm/v/@langehm/storybook-addon-vue-slots?style=flat-square" alt="version" />
     </a>
     <a href="https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md">
       <img src="https://raw.githubusercontent.com/JoJk0/StandWithUkraine/patch-1/badges/StandWithUkraineFlat.svg" alt="version" />
@@ -15,7 +16,6 @@
   </h3>
 </p>
 
-[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine/)
 
 Enables to use Vue slots inside Storybook's CSF files.
 
@@ -29,7 +29,7 @@ Enables to use Vue slots inside Storybook's CSF files.
 ## 📦 Installation
 
 ```sh
-pnpm add -D storybook-addon-vue-slots
+pnpm add -D @langehm/storybook-addon-vue-slots
 ```
 
 Add the `storybook-addon-vue-slots` to your plugins in `main.ts` file:
@@ -40,7 +40,7 @@ export default {
   // ...
   addons: [
     // ...
-    "storybook-addon-vue-slots",
+    "@langehm/storybook-addon-vue-slots",
   ],
 } satisfies StorybookConfig;
 ```
