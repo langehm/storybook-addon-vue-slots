@@ -39,7 +39,7 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "prebuild": "npm run clean",
-    "build": "tsup",
+    "build": "tsup && cp package.json dist/package.json",
     "build:watch": "npm run build --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run -p build:watch 'storybook --quiet'",
